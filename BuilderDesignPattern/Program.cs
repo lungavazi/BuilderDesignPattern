@@ -1,12 +1,21 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using BuilderDesignPattern.CarBuilder;
 using BuilderDesignPattern.HtmlElement;
 
+VWCarBuilder vwCarBuilder = new VWCarBuilder();
+//CarDirector carDirector = new CarDirector();
 
-var builder = new htmlBuilder("ul");
-builder.AddChild("li", "hello");
-builder.AddChild("li", "world");
-Console.WriteLine(builder);
+ToyotaCarBuilder toyotaCarBuilder = new ToyotaCarBuilder();
+
+//carDirector.construct(vwCarBuilder);
+//carDirector.construct(toyotaCarBuilder);
+ vwCarBuilder.build().desiplayInfo();
+ toyotaCarBuilder.build().desiplayInfo();
+//vwCar.desiplayInfo();
+
+
+
 
 
 
