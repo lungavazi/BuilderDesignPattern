@@ -1,9 +1,9 @@
 ﻿namespace BuilderDesignPattern.HtmlElement
 {
-    public class htmlBuilder
+    public class htmlBuilder: IBuilder
     {
         private readonly string rootName;
-        HtmlElement root = new HtmlElement();
+        private HtmlElement root = new HtmlElement();
 
         public htmlBuilder(string rootName)
         {
@@ -11,10 +11,10 @@
             root.Name = rootName;
         }
 
-        public void AddChild(string childName, string childText)
+        public IBuilder AddChild(string childName, string childText)
         {
-            var e = new HtmlElement(childName, childText);
-            root.Elements.Add(e);
+            root.Elements.Add(new HtmlElement(childName, childText));
+            return this;
         }
 
         public override string ToString()
@@ -25,6 +25,11 @@
         public void clear()
         {
             root = new HtmlElement { Name = rootName };
+        }
+
+        public HtmlElement build()
+        {
+            return root;
         }
     }
 }
