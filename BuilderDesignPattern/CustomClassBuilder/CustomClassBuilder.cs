@@ -1,12 +1,12 @@
 ﻿using BuilderDesignPattern.CustomClassBuilder;
 using System.Text;
 
-public class ClassBuilder : IClassBuilder
+public class CustomClassBuilder : IClassBuilder
 {
     private readonly string rootName;
     CustomClass root = new CustomClass(string.Empty);
 
-    public ClassBuilder(string rootName)
+    public CustomClassBuilder(string rootName)
     {
         root.ClassName = rootName;
     }
@@ -15,8 +15,8 @@ public class ClassBuilder : IClassBuilder
         root.CustomClasses.Add(new CustomClass(fieldName, fieldType));
         return this;
     }
-    public override string ToString()
+    CustomClass IClassBuilder.Build()
     {
-        return root.ToString();
+        return root;
     }
 }

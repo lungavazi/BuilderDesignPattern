@@ -9,5 +9,6 @@ namespace BuilderDesignPattern.CustomClassBuilder
     public interface IClassBuilder
     {
         IClassBuilder AddField(string fieldName, string fieldType);
+        CustomClass Build();
     }
 }

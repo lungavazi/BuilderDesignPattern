@@ -3,19 +3,13 @@
 using BuilderDesignPattern.CarBuilder;
 using BuilderDesignPattern.HtmlElement;
 
-var cb = new ClassBuilder("Person").AddField("Name", "string").AddField("Age", "int");
-Console.WriteLine(cb);
+var cb = new CustomClassBuilder("Person")
+    .AddField("Name", "string")
+    .AddField("Surname", "string")
+    .AddField("Address", "string")
+    .AddField("Age", "int");
 
-//VWCarBuilder vwCarBuilder = new VWCarBuilder();
-//CarDirector carDirector = new CarDirector();
-
-//ToyotaCarBuilder toyotaCarBuilder = new ToyotaCarBuilder();
-
-//carDirector.construct(vwCarBuilder);
-//carDirector.construct(toyotaCarBuilder);
-//vwCarBuilder.build().desiplayInfo();
-//toyotaCarBuilder.build().desiplayInfo();
-//vwCar.desiplayInfo();
+Console.WriteLine(cb.Build().ToString());
 
 
 
